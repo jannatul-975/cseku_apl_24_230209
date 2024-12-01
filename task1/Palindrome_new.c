@@ -2,30 +2,30 @@
 
 int main(void)
 {
-    int n, p = 0, r, number; // Declaration of variables
+    int originalNumber, palindromeNumber = 0, lastDigit, tmp_Number; // Declaration of variables
 
     // Prompt the user to enter a number
     printf("Enter a number: ");
-    scanf("%d", &n); // Scan a number
+    scanf("%d", &originalNumber); // Scan a number
 
-    number = n; // Store the original number
+    tmp_Number = originalNumber; // Store the original number
 
     // Reverse the number
-    while (n != 0)
+    while (originalNumber != 0)
     {
-        r = n % 10;       // Get the last digit
-        p = (p * 10) + r; // Append the digit to the reversed number
-        n = n / 10;       // Remove the last digit from the original number
+        lastDigit = originalNumber % 10;                // Get the last digit
+        palindromeNumber = (palindromeNumber * 10) + lastDigit; // Append the digit to the reversed number
+        originalNumber = originalNumber / 10; // Remove the last digit from the original number
     }
 
     // Check if the original number is equal to the reversed number
-    if (p == number)
+    if (palindromeNumber == tmp_Number)
     {
-        printf("The number %d is palindrome", number);
+        printf("The number %d is palindrome", tmp_Number);
     }
     else
     {
-        printf("The number %d is not palindrome", number);
+        printf("The number %d is not palindrome", tmp_Number);
     }
 
     return 0;
