@@ -3,37 +3,33 @@
 
 int main()
 {
-    int i, j, k, m;         // Declaration of variables
-    char str[50], str2[50]; // Declaration of character array
+    char string[50]; // Declaration of character array
+    int i, j, k;     // Declaration of variables
 
     // Prompt the user to enter a string
     printf("Enter a string: ");
-    gets(str);           // Read input string
-    int l = strlen(str); // Get the length of the string
+    gets(string);                // Read input string
+    int length = strlen(string); // Get the length of the string
 
     // Loop through the string to find the substring "abc"
-    for (i = 0; i < l - 2; i++)
+    for (i = 0; i < length - 2; i++)
     {
-        if (str[i] == 'a' && str[i + 1] == 'b' && str[i + 2] == 'c')
+        if (string[i] == 'a' && string[i + 1] == 'b' && string[i + 2] == 'c')
         {
             // Replace "abc" with "cd"
-            str[i] = 'c';
-            str[i + 1] = 'd';
+            string[i] = 'c';
+            string[i + 1] = 'd';
 
             // Shift the remaining characters to the left
-            for (j = 0, k = i + 3; k < l; j++, k++)
+            for (j = i + 2, k = i + 3; k < length; j++, k++)
             {
-                str2[j] = str[k];
+                string[j] = string[k];
             }
-            l = l - 1; // Decrease the length of the string by 1
-            for (m = i + 2, j = 0; m < l; m++, j++)
-            {
-                str[m] = str2[j];
-            }
+            length = length - 1; // Decrease the length of the string by 1
         }
     }
-    str[l] = '\0'; // Null-terminate the modified string
-    puts(str);     // Output the modified string
+    string[length] = '\0'; // Null-terminate the modified string
+    puts(string);          // Output the modified string
 
     return 0;
 }
