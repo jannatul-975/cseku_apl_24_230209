@@ -2,66 +2,66 @@
 
 int main(void)
 {
-    int i, j, tmp, n; // Declaration of variables
+    int index, innerIndex, tmp, numOfElements; // Declaration of variables
 
     // Prompt user for the number of elements in the array
     printf("Enter the number of elements in array: ");
-    scanf("%d", &n); // Read the number of elements
+    scanf("%d", &numOfElements); // Read the number of elements
 
-    int arr[n]; // Declare an array of size n
+    int arr[numOfElements]; // Declare an array of size numOfElements
 
-    // Read n elements into the array
-    for (i = 0; i < n; i++)
+    // Read numOfElements from the array
+    for (index = 0; index < numOfElements; index++)
     {
-        scanf("%d", &arr[i]); // Input each element
+        scanf("%d", &arr[index]); // Input each element
     }
 
     // Sorting in ascending order using bubble sort
-    for (i = 0; i < n - 1; i++)
+    for (index = 0; index < numOfElements - 1; index++)
     {
-        for (j = i + 1; j < n; j++)
+        for (innerIndex = index + 1; innerIndex < numOfElements; innerIndex++)
         {
-            // Start j from i + 1
-            if (arr[i] > arr[j])
+            // Start innerIndex from index + 1
+            if (arr[index] > arr[innerIndex])
             {
                 // If current element is greater than the next
                 // Swap the elements
-                tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
+                tmp = arr[index];
+                arr[index] = arr[innerIndex];
+                arr[innerIndex] = tmp;
             }
         }
     }
 
     // Output the sorted array in ascending order
     printf("\nSorted array in ascending order:\n");
-    for (i = 0; i < n; i++)
+    for (index = 0; index < numOfElements; index++)
     {
-        printf("%d ", arr[i]); // Print each element
+        printf("%d ", arr[index]); // Print each element
     }
 
     // Sorting in descending order using bubble sort
-    for (i = 0; i < n - 1; i++)
+    for (index = 0; index < numOfElements - 1; index++)
     {
-        for (j = i + 1; j < n; j++)
+        for (innerIndex = index + 1; innerIndex < numOfElements; innerIndex++)
         {
-            // Start j from i + 1
-            if (arr[i] < arr[j])
+            // Start innerIndex from index + 1
+            if (arr[index] < arr[innerIndex])
             {
                 // If current element is less than the next
                 // Swap the elements
-                tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
+                tmp = arr[index];
+                arr[index] = arr[innerIndex];
+                arr[innerIndex] = tmp;
             }
         }
     }
 
     // Output the sorted array in descending order
     printf("\nSorted array in descending order:\n");
-    for (i = 0; i < n; i++)
+    for (index = 0; index < numOfElements; index++)
     {
-        printf("%d ", arr[i]); // Print each element
+        printf("%d ", arr[index]); // Print each element
     }
 
     return 0;
