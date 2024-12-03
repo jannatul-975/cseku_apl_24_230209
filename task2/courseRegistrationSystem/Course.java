@@ -2,9 +2,9 @@ package courseRegistrationSystem;
 
 public class Course {
 
-    protected String courseCode;
-    protected String courseName;
-    protected double credit;
+    private String courseCode;
+    private String courseName;
+    private double credit;
 
     public Course(String courseCode, String courseName, double credit) {
         this.courseCode = courseCode;
@@ -12,20 +12,38 @@ public class Course {
         this.credit = credit;
     }
 
-    public String getCourseId() {
+    //Get course code
+    public String getCourseCode() {
         return courseCode;
     }
 
+    //Get course name
     public String getCourseName() {
         return courseName;
     }
 
+    //Get course credit
     public double getCredit() {
         return credit;
     }
 
-    public boolean isRetake(Course course) {
+    //Set course code
+    public void setCourseCode() {
 
+    }
+
+    //Set course name
+    public void setCourseName() {
+
+    }
+
+    //Set course credit
+    public void setCredit() {
+
+    }
+
+    public String toString(){
+        return "\nCourse Code:"+courseCode+"\nCourse Name"+courseName+"\nCredit"+credit;
     }
 
 }
