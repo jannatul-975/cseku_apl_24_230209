@@ -2,7 +2,8 @@ package courseRegistrationSystem;
 
 public class EmailNotificationService implements NotificationService{
 
-    public void notify(Student student, Course course) {
+    //Method to send email to a student
+    public void notify(Student student) {
 
     }
 }
