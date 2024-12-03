@@ -1,5 +1,5 @@
-#**Project on Course Registration System**<br/>
-###Here we implement a course registration system with applying SOLID principles<br/>
+#**Project on Course Registration System**#<br/>
+###Here we implement a course registration system with applying SOLID principles###<br/>
 #**Project Structure**<br/>
 ##courseRegistrationSystem<br/>
 11.Admin<br/>
