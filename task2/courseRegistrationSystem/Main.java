@@ -13,98 +13,50 @@ public class Main {
         Payment paymentService = new RocketPayment();
         CourseRegistrationSystem courseRegistrationSystem = new CourseRegistrationSystem(notificationService, paymentService);
 
-        // List to store students
-        List<Student> students = new ArrayList<>();
+        // Create students
+        Student student1 = new Student("230201", "Student1", "student1@example.com",
+                "Computer Science and Engineering", 2, 1);
+        Student student2 = new Student("230202", "Student2", "student2@example.com",
+                "Computer Science and Engineering", 2, 1);
 
-        // Create some sample courses
-        Course course1 = new Course("CSE101", "Advance Programming laboratory", 1.0);
-        Course course2 = new Course("CSE102", "Data Structures", 3.0);
-        Course course3 = new Course("CSE103", "Algorithms", 3.0);
-        Course course4 = new Course("CSE104", "Operating Systems", 2.0);
+        // Create courses
+        Course apl = new Course("CSE 2100", "Advanced Programming laboratory", 1.5);
+        Course ds = new Course("CSE 2101", "Data Structures", 3);
 
-        List<Course> courses = List.of(course1, course2, course3,course4);
-        // Add students
-        System.out.print("Enter the number of students to register : ");
-        int studentCount = Integer.parseInt(scanner.nextLine());
-        for (int i = 1; i <= studentCount; i++) {
-            System.out.print("Enter student ID: ");
-            String id = scanner.next();
+        // Instructor creates courses
+        Instructor instructor = new Instructor("I001", "Instructor", "instructor@example.com");
+        instructor.createCourse(apl);
+        instructor.createCourse(ds);
 
-            System.out.print("Enter student name: ");
-            String name = scanner.next();
+        //add courses to register for each student
+        student1.addCourse(apl);
+        student1.addCourse(ds);
+        student2.addCourse(apl);
+        student2.addCourse(ds);
 
-            System.out.print("Enter student email: ");
-            String email = scanner.next();
+        List<Course> registeredCourses = student1.getRegisteredCourses();
 
-            System.out.print("Enter student discipline: ");
-            String discipline = scanner.next();
+        //Admin approve a student for registration
+        Admin admin=new Admin("I002","Admin","admin@gmail.com");
+        admin.approveStudent(student1,registeredCourses);
 
-            System.out.print("Enter student year: ");
-            int year = scanner.nextInt();
+        // Register student for a course
+        courseRegistrationSystem.registerCourse(admin,student1,registeredCourses);
 
-            System.out.print("Enter student semester: ");
-            int semester = scanner.nextInt();
-
-            // Create a new student and add to the list
-            Student student = new Student(id, name, email, discipline, year, semester);
-            students.add(student);
+        // View registered courses
+        System.out.println("Registered Courses for \n" + student1);
+        for (Course course : registeredCourses) {
+            System.out.println(course);
         }
+        System.out.println("Approved by\n"+admin);
 
-        // Display course registration options and register students for courses
-        for (Student student : students) {
-            System.out.println("Registering courses for " + student.getName() + ":");
-            for (Course course : courses) {
-                System.out.print("Do you want to register for " + course.getCourseName() + "? (yes/no): ");
-                String registerChoice = scanner.next();
-                if (registerChoice.equalsIgnoreCase("yes")) {
-                    courseRegistrationSystem.registerCourse(student, course);
-                    System.out.println("Registered " + student.getName() + " for " + course.getCourseName());
-                }
-            }
+        // Find students in the same discipline, year, and semester
+        List<Student> Students = CourseRegistrationSystem.getStudentsInSameDisciplineYearAndSemester(
+                "Computer Science and Engineering", 2, 1);
+        System.out.println("Students in Computer Science and Engineering Discipline, Year 2, Semester 1:");
+        for (Student s : Students) {
+            System.out.println(s);
         }
-
-        // Display each student's registered courses
-        for (Student student : students) {
-            System.out.println("Courses registered by " + student.getName() + ":");
-            for (Course course : student.viewRegisteredCourses()) {
-                System.out.println(" - " + course.getCourseName());
-            }
-        }
-
-        // Display course registration options and register students for courses
-        for (Student student : students) {
-            System.out.println("Registering courses for " + student.getName() + ":");
-            for (Course course : courses) {
-                System.out.print("Do you want to register for " + course.getCourseName() + "? (yes/no): ");
-                String registerChoice = scanner.next();
-                if (registerChoice.equalsIgnoreCase("yes")) {
-                    courseRegistrationSystem .registerCourse(student, course);
-                    System.out.println("Registered " + student.getName() + " for " + course.getCourseName());
-                }
-            }
-        }
-
-        // Display students in the same discipline, year, and semester
-        System.out.print("Enter a discipline to view students in the same year and semester: ");
-        String discipline = scanner.next();
-
-        System.out.print("Enter the year: ");
-        int year = scanner.nextInt();
-
-        System.out.print("Enter the semester: ");
-        int semester = scanner.nextInt();
-
-        List<Student> similarStudents = Student.getStudentsInSameDisciplineYearAndSemester(discipline, year, semester);
-        if (!similarStudents.isEmpty()) {
-            System.out.println("Students in " + discipline + " for year " + year + ", semester " + semester + ":");
-            for (Student s : similarStudents) {
-                System.out.println("- " + s.getName() + " (" + s.getEmail() + ")");
-            }
-        } else {
-            System.out.println("No students found in the specified discipline, year, and semester.");
-        }
-
-        scanner.close();
     }
 }
 
