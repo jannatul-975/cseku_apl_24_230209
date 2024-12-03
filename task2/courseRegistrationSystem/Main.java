@@ -38,7 +38,7 @@ public class Main {
         Admin admin=new Admin("I002","Admin","admin@gmail.com");
         admin.approveStudent(student1,registeredCourses);
 
-        // Register student for a course
+        // Register courses for a student
         courseRegistrationSystem.registerCourse(admin,student1,registeredCourses);
 
         // View registered courses
