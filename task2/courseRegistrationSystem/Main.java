@@ -12,9 +12,9 @@ public class Main {
         CourseRegistrationSystem courseRegistrationSystem = new CourseRegistrationSystem(notificationService, paymentService);
 
         // Create students
-        Student student1 = new Student("230201", "Student1", "student1@example.com",
+        Student student1 = new Student("230201", "Student1", "student1@gamil.com",
                 "Computer Science and Engineering", 2, 1);
-        Student student2 = new Student("230202", "Student2", "student2@example.com",
+        Student student2 = new Student("230202", "Student2", "student2@gmail.com",
                 "Computer Science and Engineering", 2, 1);
 
         // Create courses
@@ -22,7 +22,7 @@ public class Main {
         Course ds = new Course("CSE 2101", "Data Structures", 3);
 
         // Instructor creates courses
-        Instructor instructor = new Instructor("I001", "Instructor", "instructor@example.com");
+        Instructor instructor = new Instructor("I001", "Instructor", "instructor@gmail.com");
         instructor.createCourse(apl);
         instructor.createCourse(ds);
 
