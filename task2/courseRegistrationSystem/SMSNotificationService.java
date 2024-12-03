@@ -2,7 +2,8 @@ package courseRegistrationSystem;
 
 public class SMSNotificationService implements NotificationService {
 
-    public void notify(Student student, Course course) {
+    //Method to send a sms to a student
+    public void notify(Student student) {
 
     }
 }
