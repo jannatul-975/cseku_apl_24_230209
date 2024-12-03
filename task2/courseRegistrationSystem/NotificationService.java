@@ -2,6 +2,7 @@ package courseRegistrationSystem;
 
 public interface NotificationService {
 
-    void notify(Student student, Course course);
+    //Send notification to a student
+    void notify(Student student);
 }
 
