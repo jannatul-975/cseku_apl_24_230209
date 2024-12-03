@@ -1,8 +1,14 @@
 package courseRegistrationSystem;
 
+import java.util.List;
+
 public interface Approval {
 
-    void approveRegistration(Student student, Course course);
+    //Method to approve a student
+    void approveStudent(Student student, List<Course> course);
+
+    //Method to check if a student is approved or not
+    boolean isApproved(Student student);
 
 }
 
