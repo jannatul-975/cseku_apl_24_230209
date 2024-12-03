@@ -2,7 +2,7 @@
 ### Here we implement a course registration system with applying SOLID principles<br/>
 # **Project Structure**<br/>
 ## courseRegistrationSystem<br/>
-11.Admin<br/>
+1.Admin<br/>
 2.Approval<br/>
 3.Course<br/>
 4.CourseManager<br/>
@@ -32,4 +32,4 @@ implementation of unused methods.<br/>
 ### **Dependency Inversion Principle (DIP)**<br/>
 CourseRegistrationSystem dose not directly depend on NotificationService and Payment Interface that ensures the code being more flexible.<br/>
 At any time we can change NotificationService or Payment service without altering CourseRegistrationSystem logic.<br/>
-### The use of SOLID principles make system more efficient and flexible.<br/>
+### The use of SOLID principles make system more efficient and flexible and maintainable.<br/>
