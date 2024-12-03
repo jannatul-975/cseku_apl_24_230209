@@ -3,8 +3,13 @@ package courseRegistrationSystem;
 import java.util.List;
 
 public interface RegistrationSystem {
-    void registerCourse(Student student, Course course);
-    List<Course> viewRegisteredCourses();
+
+    //Method to check retake courses
+    boolean isRetake(Student student,Course course);
+
+    //Method to register  course
+    void registerCourse(Admin admin,Student student,List<Course> course);
+
 }
 
 
