@@ -2,7 +2,8 @@ package courseRegistrationSystem;
 
 public interface Payment {
 
-    void pay(double amount);
+    //Method to provide registration fees
+    void pay(Student student,double amount);
 
 }
 
