@@ -32,6 +32,7 @@ public class Main {
         student.addCourse(apl);
         student.addCourse(ds);
 
+        //List of all courses of student
         List<Course> courses = student.getRegisteredCourses();
 
         //Admin approve a student for registration
